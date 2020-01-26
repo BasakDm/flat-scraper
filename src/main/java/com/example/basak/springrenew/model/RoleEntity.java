@@ -11,13 +11,13 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "role")
-public class Role {
+@Table(name = "roles")
+public class RoleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "role_id")
-    private int id;
+    private long id;
 
     private String role;
 

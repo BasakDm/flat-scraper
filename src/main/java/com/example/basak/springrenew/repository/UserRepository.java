@@ -1,12 +1,12 @@
 package com.example.basak.springrenew.repository;
 
-import com.example.basak.springrenew.model.UserDetails;
+import com.example.basak.springrenew.model.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<UserDetails, Long> {
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
-    UserDetails findByEmail(String email);
+    UserEntity findByEmail(String email);
 
 }

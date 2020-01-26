@@ -1,15 +1,16 @@
 package com.example.basak.springrenew.service;
 
-import com.example.basak.springrenew.model.UserDetails;
+import com.example.basak.springrenew.model.UserEntity;
+import com.example.basak.springrenew.model.dto.UserDto;
 
 public interface UserService {
 
-    UserDetails findUserByEmail(String email);
+    UserDto findUserByEmail(String email);
 
-    void saveUser(UserDetails userDetails);
+    void saveUser(UserEntity user);
 
     boolean isAuthenticated();
 
-    UserDetails getCurrentUser();
+    UserDto getCurrentUser();
 
 }

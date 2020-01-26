@@ -4,33 +4,35 @@
       xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
-    <title>Spring Security Tutorial</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
-<form th:action="@{/user/registration}" method="get">
-    <button class="btn btn-md btn-warning btn-block" type="Submit">Go To Registration Page</button>
-</form>
-
-<div class="container">
-    <form th:action="@{/user/login}" method="POST" class="form-signin">
-        <h3 class="form-signin-heading" th:text="Welcome"></h3>
-        <br/>
-
-        <input type="text" id="email" name="email"  th:placeholder="Email"
-               class="form-control" /> <br/>
-        <input type="password"  th:placeholder="Password"
-               id="password" name="password" class="form-control" /> <br />
-
-        <div align="center" th:if="${#httpServletRequest.getParameter('error')}">
-            <p style="font-size: 20px; color: #FF1C19;">Email or Password invalid, please verify</p>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit" th:text="Login"></button>
-    </form>
+<div class="container login-container">
+    <div align="center" class="login-form">
+        <form th:action="@{/user/login}" method="POST">
+            <h3>Login</h3>
+            <div class="form-group">
+                <input type="email" id="email" name="email" class="form-control" placeholder="Your Email *" value=""/>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" class="form-control" placeholder="Your Password *" value=""/>
+            </div>
+            <div align="center" th:if="${#httpServletRequest.getParameter('error')}">
+                <p class="msgError">Email or Password invalid, please verify</p>
+            </div>
+            <div align="center" class="form-group">
+                <input type="submit" class="btnSubmit" value="Login"/>
+            </div>
+            <div class="form-group">
+                <a th:href="@{/user/registration}">Sign up</a>
+            </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>

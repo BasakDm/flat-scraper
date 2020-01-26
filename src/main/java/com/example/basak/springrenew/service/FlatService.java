@@ -1,16 +1,12 @@
 package com.example.basak.springrenew.service;
 
-import com.example.basak.springrenew.model.TaskInfo;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.example.basak.springrenew.model.dto.TaskInfoDto;
 
 public interface FlatService {
 
-    void startForumScrapeTask(TaskInfo taskInfoParams);
+    void startForumScrapeTask(TaskInfoDto taskInfoParams);
 
-    void saveTaskParams(TaskInfo taskInfoParams);
-
-    List<TaskInfo> getAllTaskParams();
+    void saveTaskParams(TaskInfoDto taskInfoParams);
 
 }

@@ -1,29 +1,32 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/default :: main-fragment(
+                                                ~{:: title},
+                                                ~{:: #home-main-content}
+                                               )}" lang="ru">
+
 <head>
-    <meta charset="utf-8"/>
-    <title>Task list</title>
+    <title>Tasks</title>
 </head>
 <body>
-<!--<table>-->
-    <!--<thead>-->
-    <!--<tr>-->
-        <!--<th>Id</th>-->
-        <!--<th>User name</th>-->
-        <!--<th>Email</th>-->
-        <!--<th>Period</th>-->
-        <!--<th>Registration time</th>-->
-    <!--</tr>-->
-    <!--</thead>-->
-    <!--<tbody>-->
-    <!--<tr th:each="task : ${tasks}">-->
-        <!--<td th:text="${task.id}">Id</td>-->
-        <!--<td th:text="${task.userName}">User name</td>-->
-        <!--<td th:text="${task.email}">Email</td>-->
-        <!--<td th:text="${task.period}">Period</td>-->
-    <!--</tr>-->
-    <!--</tbody>-->
-<!--</table>-->
+
+<div id="home-main-content">
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Resource name</th>
+            <th>Period</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task : ${tasks}">
+            <td th:text="${task.id}">Id</td>
+            <td th:text="${taskToResource.get(task.resourceId)}">Resource name</td>
+            <td th:text="${task.period}">Period</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>

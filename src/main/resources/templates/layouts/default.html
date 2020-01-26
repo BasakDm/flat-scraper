@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:fragment="main-fragment (header, mainContent)" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" href="../../static/css/main.css"/>
+</head>
+<body>
+
+<header>
+    <div class="topnav">
+        <a th:href="@{/flat}">Home</a>
+        <a th:href="@{/flat/tasks}">Tasks</a>
+        <a href="#">Profile</a>
+    </div>
+    <div align="center" class="header-title" th:insert="${header} ?: ~{}"></div>
+    <a class="logout" th:href="@{/logout}">Logout</a>
+</header>
+
+<section>
+    <article th:insert="${mainContent} ?: ~{}">
+    </article>
+</section>
+
+<footer>
+    &copy; Dmitry Basak
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+.login-container {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.login-form {
+    margin-left: 25%;
+    width: 35%;
+    overflow: hidden;
+    padding: 5% 5% 2%;
+    background: #282726;
+    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 26px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login-form h3 {
+    text-align: center;
+    margin-bottom: 16%;
+    color: #fff;
+}
+
+.btnSubmit {
+    font-weight: 600;
+    width: 50%;
+    color: #282726;
+    background-color: #fff;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    cursor: pointer;
+}
+
+.login-form a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-form a:hover {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.msgError {
+    font-size: 14px;
+    color: #fff;
+}

@@ -1,6 +1,6 @@
 package com.example.basak.springrenew.controller;
 
-import com.example.basak.springrenew.model.UserDetails;
+import com.example.basak.springrenew.model.UserEntity;
 import com.example.basak.springrenew.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,11 +13,11 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/user")
-public class LoginController {
+public class SecurityController {
 
     private final UserService userService;
 
-    public LoginController(UserService userService) {
+    public SecurityController(UserService userService) {
         this.userService = userService;
     }
 
@@ -32,26 +32,21 @@ public class LoginController {
 
     @GetMapping("/registration")
     public String registration(Model model) {
-        model.addAttribute("user", new UserDetails());
+        model.addAttribute("user", new UserEntity());
         return "registration";
     }
 
     @PostMapping("/registration")
-    public String createNewUser(@Valid UserDetails userDetails, BindingResult bindingResult) {
-        UserDetails userDetailsExists = userService.findUserByEmail(userDetails.getEmail());
-        if (userDetailsExists != null) {
+    public String createNewUser(@Valid UserEntity user, BindingResult bindingResult) {
+        if (userService.findUserByEmail(user.getEmail()) != null) {
             bindingResult
                     .rejectValue("email", "error.user",
                             "There is already a user registered with the email provided");
-        } else {
-            userService.saveUser(userDetails);
-        }
-
-        if (bindingResult.hasErrors()) {
+        } else if (bindingResult.hasErrors()) {
             return "registration";
-        } else {
-            return "redirect:/user/login";
         }
+        userService.saveUser(user);
+        return "redirect:/user/login";
     }
 
 }
